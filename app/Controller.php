@@ -1,6 +1,6 @@
 <?php
 namespace App;
-use App\App;
+use App\{App,Model};
 use Fenom;
 class Controller{
     function __construct()
@@ -10,6 +10,8 @@ class Controller{
     }
 
     public function Home(){
+        $model = new Model();
+        $flights = $model->getCollection('`flights`');
         $template = 'home.tpl';
         $data = [
             'title' => 'Главная страница',
