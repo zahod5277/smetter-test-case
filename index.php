@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-$controller = new \App\Controller();
-echo 'This is '.$controller->config['app_name'];
 
+use App\App;
+$App = new App();
+$App->run();
