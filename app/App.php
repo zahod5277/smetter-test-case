@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Fenom;
-
 class App
 {
     public $fenom;
@@ -12,11 +10,9 @@ class App
     {
     }
 
-    function run()
+    function run($req)
     {
-        Fenom::registerAutoload();
-        $this->fenom = Fenom::factory('app/templates/', 'app/templates/cache/', []);
-        $controller = new \App\Controller();
-        echo 'This is ' . $controller->config['app_name'];
+        $router = new \App\Router();
+        $router->handleRequest($req);
     }
 }
