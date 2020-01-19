@@ -1,18 +1,12 @@
 <?php
 namespace App;
+use App\App;
 use Fenom;
 class Controller{
-    public $config = [];
     function __construct()
     {
-        $this->config = [
-            'app_name' => 'SMETTER PLANE SCHEMA',
-            'template_path' => 'app/templates',
-            'template_cache_path' => 'app/templates/cache'
-        ];
-
         Fenom::registerAutoload();
-        $this->fenom = Fenom::factory($this->config['template_path'],$this->config['template_cache_path'], []);
+        $this->fenom = Fenom::factory(App::config('template_path'),App::config('template_cache_path'), []);
     }
 
     public function Home(){
