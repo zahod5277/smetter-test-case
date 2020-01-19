@@ -18,6 +18,7 @@ class DB
             echo "Не удалось подключиться к MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
             return false;
         }
+        mysqli_set_charset($db, 'UTF8');
         return $db;
     }
 }

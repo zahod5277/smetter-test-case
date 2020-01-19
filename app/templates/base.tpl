@@ -9,6 +9,12 @@
 </head>
 {/block}
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <h1>Smetter Airlines</h1><br>
+        <h3>Just 3 flights. Ever.</h3>
+    </div>
+</nav>
 {block 'CONTENT'}
 {/block}
 {block 'SCRIPTS'}

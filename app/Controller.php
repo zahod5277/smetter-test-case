@@ -15,7 +15,7 @@ class Controller{
         $template = 'home.tpl';
         $data = [
             'title' => 'Главная страница',
-            'seats' => [1,5,2]
+            'flights' => $flights
         ];
 
         $this->render($template,$data);
