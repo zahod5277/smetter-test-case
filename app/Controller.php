@@ -25,6 +25,14 @@ class Controller{
         echo $this->fenom->fetch($template,$data);
     }
 
+    public function error($message){
+        $template = 'chunks/error.tpl';
+        $message = [
+            'message' => $message
+        ];
+        $this->render($template,$message);
+    }
+
 
 
 }

@@ -13,7 +13,7 @@ $(document).ready(function () {
         e.preventDefault();
         let api = $(this).data('api'),
             params;
-        if (api == 'get/flights/date'){
+        if (api == 'get/flights/dates'){
             params = $(this).val();
         }
 

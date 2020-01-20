@@ -9,11 +9,21 @@ class ComposerStaticInit7cb8daeafb9a4c008ee2e9c5cb1ef25e
     public static $prefixLengthsPsr4 = array (
         'A' => 
         array (
+            'App\\Models\\' => 11,
+            'App\\Controllers\\' => 16,
             'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'App\\Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Models',
+        ),
+        'App\\Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Controllers',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -31,7 +41,29 @@ class ComposerStaticInit7cb8daeafb9a4c008ee2e9c5cb1ef25e
     );
 
     public static $classMap = array (
+        'App\\App' => __DIR__ . '/../..' . '/app/App.php',
+        'App\\Controller' => __DIR__ . '/../..' . '/app/Controller.php',
+        'App\\Controllers\\Flights' => __DIR__ . '/../..' . '/app/Controllers/Flights.php',
+        'App\\DB' => __DIR__ . '/../..' . '/app/DB.php',
+        'App\\Model' => __DIR__ . '/../..' . '/app/Model.php',
+        'App\\Models\\Model_Flights' => __DIR__ . '/../..' . '/app/Models/Model_Flights.php',
+        'App\\Router' => __DIR__ . '/../..' . '/app/Router.php',
         'Fenom' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom.php',
+        'Fenom\\Accessor' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Accessor.php',
+        'Fenom\\Compiler' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Compiler.php',
+        'Fenom\\Error\\CompileException' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Error/CompileException.php',
+        'Fenom\\Error\\InvalidUsageException' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Error/InvalidUsageException.php',
+        'Fenom\\Error\\SecurityException' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Error/SecurityException.php',
+        'Fenom\\Error\\TokenizeException' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Error/TokenizeException.php',
+        'Fenom\\Error\\UnexpectedTokenException' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Error/UnexpectedTokenException.php',
+        'Fenom\\Modifier' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Modifier.php',
+        'Fenom\\Provider' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Provider.php',
+        'Fenom\\ProviderInterface' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/ProviderInterface.php',
+        'Fenom\\RangeIterator' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/RangeIterator.php',
+        'Fenom\\Render' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Render.php',
+        'Fenom\\Tag' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Tag.php',
+        'Fenom\\Template' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Template.php',
+        'Fenom\\Tokenizer' => __DIR__ . '/..' . '/fenom/fenom/src/Fenom/Tokenizer.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

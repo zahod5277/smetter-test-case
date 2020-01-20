@@ -5,7 +5,7 @@ use App\Controller;
 class Router{
 
     static $rules = [
-        "get/flights/date" => 'Flights::get_flight_date',
+        "get/flights/dates" => 'Flights::get_flight_dates',
     ];
 
     public $namespace = '\\App\\Controllers\\';
@@ -18,7 +18,7 @@ class Router{
         }
         foreach (self::$rules as $rule){
             if (strcasecmp($rule, $req['api'])) {
-                call_user_func($this->namespace . self::$rules[$req['api']],'');
+                call_user_func($this->namespace . self::$rules[$req['api']],$req['params']);
             }
         }
     }

@@ -6,5 +6,27 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\App' => $baseDir . '/app/App.php',
+    'App\\Controller' => $baseDir . '/app/Controller.php',
+    'App\\Controllers\\Flights' => $baseDir . '/app/Controllers/Flights.php',
+    'App\\DB' => $baseDir . '/app/DB.php',
+    'App\\Model' => $baseDir . '/app/Model.php',
+    'App\\Models\\Model_Flights' => $baseDir . '/app/Models/Model_Flights.php',
+    'App\\Router' => $baseDir . '/app/Router.php',
     'Fenom' => $vendorDir . '/fenom/fenom/src/Fenom.php',
+    'Fenom\\Accessor' => $vendorDir . '/fenom/fenom/src/Fenom/Accessor.php',
+    'Fenom\\Compiler' => $vendorDir . '/fenom/fenom/src/Fenom/Compiler.php',
+    'Fenom\\Error\\CompileException' => $vendorDir . '/fenom/fenom/src/Fenom/Error/CompileException.php',
+    'Fenom\\Error\\InvalidUsageException' => $vendorDir . '/fenom/fenom/src/Fenom/Error/InvalidUsageException.php',
+    'Fenom\\Error\\SecurityException' => $vendorDir . '/fenom/fenom/src/Fenom/Error/SecurityException.php',
+    'Fenom\\Error\\TokenizeException' => $vendorDir . '/fenom/fenom/src/Fenom/Error/TokenizeException.php',
+    'Fenom\\Error\\UnexpectedTokenException' => $vendorDir . '/fenom/fenom/src/Fenom/Error/UnexpectedTokenException.php',
+    'Fenom\\Modifier' => $vendorDir . '/fenom/fenom/src/Fenom/Modifier.php',
+    'Fenom\\Provider' => $vendorDir . '/fenom/fenom/src/Fenom/Provider.php',
+    'Fenom\\ProviderInterface' => $vendorDir . '/fenom/fenom/src/Fenom/ProviderInterface.php',
+    'Fenom\\RangeIterator' => $vendorDir . '/fenom/fenom/src/Fenom/RangeIterator.php',
+    'Fenom\\Render' => $vendorDir . '/fenom/fenom/src/Fenom/Render.php',
+    'Fenom\\Tag' => $vendorDir . '/fenom/fenom/src/Fenom/Tag.php',
+    'Fenom\\Template' => $vendorDir . '/fenom/fenom/src/Fenom/Template.php',
+    'Fenom\\Tokenizer' => $vendorDir . '/fenom/fenom/src/Fenom/Tokenizer.php',
 );
