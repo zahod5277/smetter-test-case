@@ -1,8 +1,10 @@
 {extends 'base.tpl'}
 {block 'CONTENT'}
-    <div class="container">
-        <div>
-            <select name="flights_from" id="flights" class="form-control">
+    <div class="container mt-5">
+        <div class="col-12 col-sm-4">
+            <h6>Выберите рейс, плиз</h6>
+            <select data-select data-api="get/flights/date" data-params name="flights_from" id="flights" class="form-control">
+                <option value="" disabled selected="selected">Нажмите для выбора</option>
                 {foreach $flights as $flight}
                     <option value="{$flight.flight_code}">{$flight.flight_from} -> {$flight.flight_to}</option>
                 {/foreach}

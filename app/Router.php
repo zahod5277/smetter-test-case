@@ -1,18 +1,25 @@
 <?php
 namespace App;
 use App\Controller;
+
 class Router{
-    function handleRequest($req){
-        $controller = new Controller();
-        if (!empty($req['method'])){
-            $method = $req['method'];
-        } else {
-            $method = '';
+
+    static $rules = [
+        "get/flights/date" => 'Flights::get_flight_date',
+    ];
+
+    public $namespace = '\\App\\Controllers\\';
+
+    function handleRequest($req = ['api' => '', 'params' => '']){
+        if (empty($req)){
+            $controller = new Controller();
+            $controller->Home();
+            exit();
         }
-        switch ($method){
-            default:
-                $controller->Home();
-                break;
+        foreach (self::$rules as $rule){
+            if (strcasecmp($rule, $req['api'])) {
+                call_user_func($this->namespace . self::$rules[$req['api']],'');
+            }
         }
     }
 }
