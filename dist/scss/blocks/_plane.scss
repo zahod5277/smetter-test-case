@@ -15,6 +15,9 @@ html {
     margin: 20px auto;
     max-width: 300px;
     transform: rotate(-90deg);
+    position: relative;
+    top: -200px;
+    left: 0%;
   }
 
   .cockpit {
@@ -125,6 +128,17 @@ html {
         &:hover {
           box-shadow: none;
           cursor: not-allowed;
+        }
+      }
+      + label.seat__booking{
+        background: #00ff4e;
+        &:after {
+          content: "O";
+          text-indent: 0;
+          position: absolute;
+          top: 4px;
+          left: 50%;
+          transform: translate(-50%, 0%);
         }
       }
     }

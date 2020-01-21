@@ -1,15 +1,24 @@
 let App = {
 
     options: {
+        book_form: '[data-book-form]',
     },
 
     init: function () {
+        var $this = this;
+    },
+    book_seat: function (id,el) {
+        $('[data-seat]').attr('disabled', true);
+        $(el).attr('disabled', false);
+        $('label[for="' + id + '"]').toggleClass('seat__booking');
+        $(App.options.book_form).addClass('form__book--visible');
+        if (($('input[data-seat]:checked').length == 0)) {
+            $('[data-seat]:not([data-occupied])').attr('disabled', false);
+            $(App.options.book_form).removeClass('form__book--visible');
+        }
 
     },
-    getFlightsDate: function(){
-
-    },
-    ajax: function(api,params,el){
+    ajax: function (api, params, el) {
         $.post(
             'index.php', {
                 api: api,
@@ -23,18 +32,25 @@ let App = {
 
 
 $(document).ready(function () {
+    App.init();
+
     $('body').on('change', '[data-select]', function (e) {
         e.preventDefault();
         let api = $(this).data('api'),
-            params;
-        switch (api){
+            params = $(this).val();
+        switch (api) {
             case 'get/flights/dates':
-                params = $(this).val();
-                App.ajax(api,params,'[data-flights-date]');
+                App.ajax(api, params, '[data-flights-date]');
+                break;
+            case 'get/flights/seats':
+                App.ajax(api, params, '[data-flights-seats]');
                 break;
             default:
                 break;
         }
-
+    });
+    $('body').on('change', '[data-seat]', function (e) {
+        var id = $(this).attr('id');
+        App.book_seat(id,this);
     });
 });

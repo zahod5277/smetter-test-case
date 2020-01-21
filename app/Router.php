@@ -6,6 +6,7 @@ class Router{
 
     static $rules = [
         "get/flights/dates" => 'Flights::get_flight_dates',
+        "get/flights/seats" => 'Flights::get_flights_seats',
     ];
 
     public $namespace = '\\App\\Controllers\\';
@@ -16,9 +17,11 @@ class Router{
             $controller->Home();
             exit();
         }
-        foreach (self::$rules as $rule){
+        $rules = self::$rules;
+        foreach ($rules as $rule){
             if (strcasecmp($rule, $req['api'])) {
                 call_user_func($this->namespace . self::$rules[$req['api']],$req['params']);
+                break;
             }
         }
     }

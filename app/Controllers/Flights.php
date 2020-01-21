@@ -12,4 +12,13 @@ class Flights extends Controller{
             'dates' => $dates
         ]);
     }
+    static function get_flights_seats($flight_id){
+        if (empty($flight_id)){
+            (new self)->error('Рейс не найден');
+        }
+        $seats = [];
+        (new self)->render('chunks/plane.seats.tpl',[
+            'seats' => $seats
+        ]);
+    }
 }

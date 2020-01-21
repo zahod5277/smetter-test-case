@@ -13,7 +13,10 @@ html {
     margin: 20px auto;
     max-width: 300px;
     -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg); }
+            transform: rotate(-90deg);
+    position: relative;
+    top: -200px;
+    left: 0%; }
   html .cockpit {
     height: 250px;
     position: relative;
@@ -107,6 +110,16 @@ html {
       html .seat input[type="checkbox"]:disabled + label:hover {
         box-shadow: none;
         cursor: not-allowed; }
+    html .seat input[type="checkbox"]:disabled + label.seat__booking {
+      background: #00ff4e; }
+      html .seat input[type="checkbox"]:disabled + label.seat__booking:after {
+        content: "O";
+        text-indent: 0;
+        position: absolute;
+        top: 4px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0%);
+                transform: translate(-50%, 0%); }
     html .seat label {
       display: block;
       position: relative;
@@ -367,3 +380,9 @@ ol {
 .rubberBand {
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand; }
+
+.form__book {
+  visibility: hidden; }
+
+.form__book--visible {
+  visibility: visible; }
