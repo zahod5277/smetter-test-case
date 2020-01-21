@@ -12,7 +12,8 @@ class Model
     public function getCollection($tablename,$where = '1'){
         $db = $this->DB->connect();
         if ($db){
-            $res = $db->query("SELECT * FROM {$tablename} WHERE {$where}");
+            $query = "SELECT * FROM {$tablename} WHERE {$where}";
+            $res = $db->query($query);
             $output = mysqli_fetch_all($res,MYSQLI_ASSOC);
             return $output;
         } else {

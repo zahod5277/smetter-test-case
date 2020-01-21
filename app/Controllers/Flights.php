@@ -9,7 +9,7 @@ class Flights extends Controller{
         $model = new \App\Models\Flights();
         $dates = $model->get_flights_dates($flight_code);
         (new self)->render('chunks/flights.date.tpl',[
-            'message' => $dates
+            'dates' => $dates
         ]);
     }
 }
