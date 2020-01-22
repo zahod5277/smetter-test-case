@@ -1,20 +1,14 @@
 let App = {
-
-    options: {
-        book_form: '[data-book-form]',
-    },
-
-    init: function () {
-    },
     book_seat: function (id,el) {
-        console.log('reload plane');
+
         $('[data-seat]').attr('disabled', true);
         $(el).attr('disabled', false);
         $('label[for="' + id + '"]').toggleClass('seat__booking');
-        $(App.options.book_form).addClass('form__book--visible');
+        $('[data-book-form]').addClass('form__book--visible');
+
         if (($('input[data-seat]:checked').length == 0)) {
             $('[data-seat]:not([data-occupied])').attr('disabled', false);
-            $(App.options.book_form).removeClass('form__book--visible');
+            $('[data-book-form]').removeClass('form__book--visible');
         }
 
     },
@@ -40,8 +34,6 @@ let App = {
 
 
 $(document).ready(function () {
-    App.init();
-
     $('body').on('change', '[data-select]', function (e) {
         e.preventDefault();
         let api = $(this).data('api'),
