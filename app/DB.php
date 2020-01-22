@@ -15,10 +15,18 @@ class DB
             App::config('db_name')
         );
         if ( $db->connect_errno ) {
-            echo "Не удалось подключиться к MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
-            return false;
+            throw new \Exception('Невозможно подключиться к БД');
         }
         mysqli_set_charset($db, 'UTF8');
         return $db;
+    }
+
+    function query($query){
+        $db = $this->connect();
+        $result = $db->query($query);
+        if (!$result){
+            throw new \Exception('Ошибка выполнения SQL запроса, проверьте запрос.');
+        }
+        return $result;
     }
 }

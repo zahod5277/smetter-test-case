@@ -8,6 +8,7 @@ class Users extends Controller{
     {
         $model = new Model();
         $user_id = $model->getObject('users', "`user_name` = '{$name}' AND `passport` = '{$passport}'");
+
         if (!is_null($user_id)){
             $message = 'Пользователь уже существует!';
             $status = 'danger';
@@ -17,6 +18,7 @@ class Users extends Controller{
             $message = 'Успешный резерв! Ваш ID резерва: '.$user_id['id'];
             $status = 'success';
         }
+
         $data = [
             'message' => $message,
             'status' => $status
