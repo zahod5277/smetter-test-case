@@ -27,6 +27,9 @@ let App = {
             function (resp) {
                 $(el).html(resp);
             });
+    },
+    reload_seats: function(){
+        console.log('reload plane');
     }
 }
 
@@ -52,5 +55,20 @@ $(document).ready(function () {
     $('body').on('change', '[data-seat]', function (e) {
         var id = $(this).attr('id');
         App.book_seat(id,this);
+    });
+
+    $(document).off('submit', '[data-form]').on('submit', '[data-form]', function (e) {
+        e.preventDefault();
+        let api = $(this).data('api'),
+            params = {
+                name: $('[name="name"]',this).val(),
+                passport: $('[name="passport"]',this).val(),
+                flight: $('[name="flights_date"]').val(),
+                seat: $('[data-seat]:checked').attr('id')
+            }
+        App.ajax(api,params,'[data-info]');
+        App.reload_seats();
+
+        return false;
     });
 });

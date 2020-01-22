@@ -21,4 +21,9 @@ class Flights extends Controller{
             'seats' => $seats
         ]);
     }
+    static function reserve_flight_seat($params){
+        $user = new Users();
+        $user->create_user($params['name'],$params['passport']);
+        //echo var_dump($params);
+    }
 }

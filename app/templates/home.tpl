@@ -18,7 +18,7 @@
 
             </div>
             <div class="col-12 col-sm-4 form__book" data-book-form>
-                <form action="/">
+                <form action="" data-api="put/flight/seat" method="POST" data-form>
                     <h6>Введите данные по-братски</h6>
                     <div class="form-group">
                         <input type="text" class="form-control" name="name" placeholder="Имя Фамилия">
@@ -27,12 +27,15 @@
                         <input type="text" class="form-control" name="passport" placeholder="Серия и номер паспорта">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary">Забронить резко</button>
+                        <button class="btn btn-primary" type="submit">Забронить резко</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="row">
+            <div class="col-12" data-info>
+
+            </div>
             <div class="col-12 plane" data-flights-seats>
 
             </div>

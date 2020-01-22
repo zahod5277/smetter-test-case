@@ -20,4 +20,16 @@ class Model
             return $db;
         }
     }
+
+    public function getObject($tablename,$where = '1'){
+        $db = $this->DB->connect();
+        if ($db){
+            $query = "SELECT * FROM `{$tablename}` WHERE {$where}";
+            $res = $db->query($query);
+            $output = $res->fetch_assoc();
+            return $output;
+        } else {
+            return $db;
+        }
+    }
 }
