@@ -126,8 +126,7 @@ html {
           transform: translate(-50%, 0%);
         }
         &:hover {
-          box-shadow: none;
-          cursor: not-allowed;
+          //cursor: not-allowed;
         }
       }
       + label.seat__booking{
@@ -367,8 +366,7 @@ ol {
         transform: translate(-50%, 0%);
       }
       &:hover {
-        box-shadow: none;
-        cursor: not-allowed;
+        //cursor: not-allowed;
       }
     }
   }

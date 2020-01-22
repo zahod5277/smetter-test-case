@@ -18,7 +18,7 @@ class Flights extends Model{
             $this->DB->query($query);
             $reserve_id = $this->get_seat($user_id,$flight,$seat);
         }
-        return $reserve_id;
+        return $reserve_id['id'];
     }
 
     public function get_seat($user_id,$flight,$seat){

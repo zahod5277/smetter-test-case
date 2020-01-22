@@ -5,9 +5,9 @@ let App = {
     },
 
     init: function () {
-        var $this = this;
     },
     book_seat: function (id,el) {
+        console.log('reload plane');
         $('[data-seat]').attr('disabled', true);
         $(el).attr('disabled', false);
         $('label[for="' + id + '"]').toggleClass('seat__booking');
@@ -26,10 +26,15 @@ let App = {
             },
             function (resp) {
                 $(el).html(resp);
+                if (api == 'put/flight/seat'){
+                    App.reload_seats();
+                }
             });
     },
     reload_seats: function(){
-        console.log('reload plane');
+        let api = 'get/flights/seats',
+            params = $('[data-api="get/flights/seats"]').val();
+        App.ajax(api, params, '[data-flights-seats]');
     }
 }
 
@@ -53,7 +58,7 @@ $(document).ready(function () {
         }
     });
     $('body').on('change', '[data-seat]', function (e) {
-        var id = $(this).attr('id');
+        let id = $(this).attr('id');
         App.book_seat(id,this);
     });
 
@@ -65,10 +70,20 @@ $(document).ready(function () {
                 passport: $('[name="passport"]',this).val(),
                 flight: $('[name="flights_date"]').val(),
                 seat: $('[data-seat]:checked').attr('id')
-            }
+            };
         App.ajax(api,params,'[data-info]');
-        App.reload_seats();
 
         return false;
+    });
+
+    $('body').on('click', '.seat', function(){
+        if ($('input',this).is('[data-occupied]')){
+            let api = 'get/flights/seat/info',
+                params = {
+                    seat: $('input',this).attr('id'),
+                    flight: $('[data-api="get/flights/seats"]').val()
+                };
+            App.ajax(api,params,'[data-info]');
+        }
     });
 });

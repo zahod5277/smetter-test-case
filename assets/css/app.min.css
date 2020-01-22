@@ -107,9 +107,6 @@ html {
         left: 50%;
         -webkit-transform: translate(-50%, 0%);
                 transform: translate(-50%, 0%); }
-      html .seat input[type="checkbox"]:disabled + label:hover {
-        box-shadow: none;
-        cursor: not-allowed; }
     html .seat input[type="checkbox"]:disabled + label.seat__booking {
       background: #00ff4e; }
       html .seat input[type="checkbox"]:disabled + label.seat__booking:after {
@@ -298,9 +295,6 @@ ol {
       left: 50%;
       -webkit-transform: translate(-50%, 0%);
               transform: translate(-50%, 0%); }
-    .seat input[type=checkbox]:disabled + label:hover {
-      box-shadow: none;
-      cursor: not-allowed; }
   .seat label {
     display: block;
     position: relative;
