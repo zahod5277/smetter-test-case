@@ -23,7 +23,17 @@ class Flights extends Controller{
     }
     static function reserve_flight_seat($params){
         $user = new Users();
-        $user->create_user($params['name'],$params['passport']);
-        //echo var_dump($params);
+        $user_id = $user->create_user($params['name'],$params['passport']);
+        $model_flights = new \App\Models\Flights();
+        $reserve_code = $model_flights->reserve_seat($user_id,$params['flight'],$params['seat']);
+
+        $message = 'Успешный резерв! Ваш ID резерва: '.$reserve_code;
+        $status = 'success';
+
+        $data = [
+            'message' => $message,
+            'status' => $status
+        ];
+        (new self)->render('chunks/reserve.info.tpl',$data);
     }
 }
