@@ -14,7 +14,7 @@ class Router{
     public $namespace = '\\App\\Controllers\\';
 
     function handleRequest($req = ['api' => '', 'params' => '']){
-        if (empty($req)){
+        if (empty($req['api'])){
             $controller = new Controller();
             $controller->Home();
             exit();
