@@ -40,10 +40,12 @@ $(document).ready(function () {
             params = $(this).val();
         switch (api) {
             case 'get/flights/dates':
+                $('.plane').hide();
                 App.ajax(api, params, '[data-flights-date]');
                 break;
             case 'get/flights/seats':
                 App.ajax(api, params, '[data-flights-seats]');
+                $('.plane').show();
                 break;
             default:
                 break;
